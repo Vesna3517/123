@@ -9,8 +9,8 @@
 
 - name: Replace a localhost entry with our own
   lineinfile:
-    path: /var/www/index.html
-    regexp: 'Welcome to nginx'
+    path: /var/www/html/index.html
+    regexp: '<h1>Hellp Ansible</h1>'
     line: <p><script> document.write(new Date().toLocaleDateString()); </script></p>
     owner: root
     group: root
