@@ -1,0 +1,17 @@
+---
+- name: install nginx
+  hosts: all
+  become: yes
+  tasks:
+    - apt:
+        name: nginx
+        sate: present
+
+- name: Replace a localhost entry with our own
+  lineinfile:
+    path: /var/www/index.html
+    regexp: 'Welcome to nginx'
+    line: <p><script> document.write(new Date().toLocaleDateString()); </script></p>
+    owner: root
+    group: root
+    mode: '0644'
